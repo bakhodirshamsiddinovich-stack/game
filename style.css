@@ -1,0 +1,514 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #333;
+}
+
+.game-container {
+    width: 460px;
+    max-width: 95%;
+    padding: 25px;
+    border-radius: 25px;
+    background: #faf8ef;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 75px;
+    line-height: 1;
+    color: #776e65;
+    font-weight: 900;
+}
+
+.score-box {
+    min-width: 90px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: #bbada0;
+    color: white;
+    text-align: center;
+}
+
+.score-box span {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.score-box strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 25px;
+}
+
+.top-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.top-panel p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 15px;
+    background: #8f7a66;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #6f5b48;
+    transform: translateY(-2px);
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border-radius: 12px;
+    background: #bbada0;
+}
+
+.cell {
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #cdc1b4;
+    font-size: 35px;
+    font-weight: bold;
+    color: #776e65;
+    transition: 0.15s;
+}
+
+.cell[data-value="2"] {
+    background: #eee4da;
+}
+
+.cell[data-value="4"] {
+    background: #ede0c8;
+}
+
+.cell[data-value="8"] {
+    background: #f2b179;
+    color: white;
+}
+
+.cell[data-value="16"] {
+    background: #f59563;
+    color: white;
+}
+
+.cell[data-value="32"] {
+    background: #f67c5f;
+    color: white;
+}
+
+.cell[data-value="64"] {
+    background: #f65e3b;
+    color: white;
+}
+
+.cell[data-value="128"] {
+    background: #edcf72;
+    color: white;
+    font-size: 30px;
+}
+
+.cell[data-value="256"] {
+    background: #edcc61;
+    color: white;
+    font-size: 30px;
+}
+
+.cell[data-value="512"] {
+    background: #edc850;
+    color: white;
+    font-size: 30px;
+}
+
+.cell[data-value="1024"] {
+    background: #edc53f;
+    color: white;
+    font-size: 25px;
+}
+
+.cell[data-value="2048"] {
+    background: #edc22e;
+    color: white;
+    font-size: 25px;
+    box-shadow: 0 0 20px #edc22e;
+}
+
+.instruction {
+    margin-top: 20px;
+    text-align: center;
+    color: #776e65;
+    font-size: 14px;
+}
+
+.game-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(250, 248, 239, 0.97);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 10;
+}
+
+.game-message h2 {
+    margin-bottom: 20px;
+    color: #776e65;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 55px;
+    }
+
+    .cell {
+        font-size: 25px;
+    }
+
+    .cell[data-value="128"],
+    .cell[data-value="256"],
+    .cell[data-value="512"] {
+        font-size: 22px;
+    }
+
+    .cell[data-value="1024"],
+    .cell[data-value="2048"] {
+        font-size: 18px;
+    }
+
+    .top-panel {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+body {
+    background: linear-gradient(135deg, #ff6b6b, #845ec2, #00c9a7);
+    color: white;
+}
+
+.game-container {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #ffffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.score-box {
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #4a154b;
+}
+
+.new-game {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+}
+
+.new-game:hover {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+}
+
+/* Rangli katakchalar */
+.tile-2 {
+    background: #ffe066;
+    color: #333;
+}
+
+.tile-4 {
+    background: #ffd166;
+    color: #333;
+}
+
+.tile-8 {
+    background: #ff9f1c;
+    color: white;
+}
+
+.tile-16 {
+    background: #ff6b35;
+    color: white;
+}
+
+.tile-32 {
+    background: #f72585;
+    color: white;
+}
+
+.tile-64 {
+    background: #b5179e;
+    color: white;
+}
+
+.tile-128 {
+    background: #7209b7;
+    color: white;
+}
+
+.tile-256 {
+    background: #560bad;
+    color: white;
+}
+
+.tile-512 {
+    background: #4361ee;
+    color: white;
+}
+
+.tile-1024 {
+    background: #4895ef;
+    color: white;
+}
+
+.tile-2048 {
+    background: linear-gradient(135deg, #00f5d4, #00bbf9);
+    color: #222;
+    box-shadow: 0 0 25px #00f5d4;
+}
+/* Asosiy o‘yin maydoni */
+.game-board {
+    background: linear-gradient(135deg, #ff758c, #845ec2, #00c9a7);
+    border: 3px solid #ffdf00;
+    box-shadow:
+        0 0 20px #ff00cc,
+        0 0 40px #00ffff;
+}
+
+/* Bo‘sh katakchalar ham rangli */
+.tile {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Sonli kartochkalar */
+.tile-2 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+}
+
+.tile-4 {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: #123;
+}
+
+.tile-8 {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    color: white;
+}
+
+.tile-16 {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: white;
+}
+
+.tile-32 {
+    background: linear-gradient(135deg, #f953c6, #b91d73);
+    color: white;
+}
+
+.tile-64 {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0);
+    color: white;
+}
+
+.tile-128 {
+    background: linear-gradient(135deg, #396afc, #2948ff);
+    color: white;
+}
+
+.tile-256 {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+}
+
+.tile-512 {
+    background: linear-gradient(135deg, #fc4a1a, #f7b733);
+    color: white;
+}
+
+.tile-1024 {
+    background: linear-gradient(135deg, #ff00cc, #333399);
+    color: white;
+}
+
+.tile-2048 {
+    background: linear-gradient(135deg, #00f260, #0575e6);
+    color: white;
+    border: 3px solid #fff700;
+    box-shadow:
+        0 0 15px #00ffff,
+        0 0 30px #ff00ff;
+    animation: glow2048 1.5s infinite alternate;
+}
+
+@keyframes glow2048 {
+    from {
+        transform: scale(1);
+        box-shadow: 0 0 15px #00ffff;
+    }
+
+    to {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px #ff00ff;
+    }
+}
+/* O'yin maydoni */
+.game-board,
+.board {
+    background: linear-gradient(135deg, #ff4ecd, #7b2ff7, #00d4ff);
+    border: 4px solid #ffe600;
+    border-radius: 18px;
+    box-shadow:
+        0 0 15px #ff00cc,
+        0 0 30px #00ffff,
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Yangi o'yin tugmasi */
+.new-game,
+button {
+    background: linear-gradient(135deg, #ff512f, #dd2476) !important;
+    color: white !important;
+    border: 2px solid #ffd700;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 12px #ff00cc;
+}
+
+.new-game:hover,
+button:hover {
+    background: linear-gradient(135deg, #00c6ff, #0072ff) !important;
+    transform: scale(1.05);
+}
+
+/* Barcha katakchalar */
+.tile,
+.cell {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+/* Raqamli kartochkalar */
+.tile-2,
+.cell-2 {
+    background: linear-gradient(135deg, #00c6ff, #0072ff) !important;
+    color: white;
+}
+
+.tile-4,
+.cell-4 {
+    background: linear-gradient(135deg, #43e97b, #38f9d7) !important;
+    color: #123;
+}
+
+.tile-8,
+.cell-8 {
+    background: linear-gradient(135deg, #ff9a00, #ffdd00) !important;
+    color: white;
+}
+
+.tile-16,
+.cell-16 {
+    background: linear-gradient(135deg, #ff512f, #dd2476) !important;
+    color: white;
+}
+
+.tile-32,
+.cell-32 {
+    background: linear-gradient(135deg, #f953c6, #b91d73) !important;
+    color: white;
+}
+
+.tile-64,
+.cell-64 {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0) !important;
+    color: white;
+}
+
+.tile-128,
+.cell-128 {
+    background: linear-gradient(135deg, #396afc, #2948ff) !important;
+    color: white;
+}
+
+.tile-256,
+.cell-256 {
+    background: linear-gradient(135deg, #11998e, #38ef7d) !important;
+    color: white;
+}
+
+.tile-512,
+.cell-512 {
+    background: linear-gradient(135deg, #fc4a1a, #f7b733) !important;
+    color: white;
+}
+
+.tile-1024,
+.cell-1024 {
+    background: linear-gradient(135deg, #ff00cc, #333399) !important;
+    color: white;
+}
+
+.tile-2048,
+.cell-2048 {
+    background: linear-gradient(135deg, #00f260, #0575e6) !important;
+    color: white;
+    border: 3px solid #fff700;
+    box-shadow: 0 0 25px #00ffff;
+}

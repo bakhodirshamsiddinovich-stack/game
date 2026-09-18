@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="game-container">
+
+        <header class="header">
+            <h1>2048</h1>
+
+            <div class="score-box">
+                <span>BALL</span>
+                <strong id="score">0</strong>
+            </div>
+        </header>
+
+        <div class="top-panel">
+            <p>Sonlarni birlashtiring va <b>2048</b> ga erishing!</p>
+            <button id="new-game">Yangi o‘yin</button>
+        </div>
+
+        <div id="game-board" class="game-board"></div>
+
+        <p class="instruction">
+            Boshqarish: ⬆️ ⬇️ ⬅️ ➡️ yoki W A S D
+        </p>
+
+        <div id="game-message" class="game-message hidden">
+            <h2 id="message-title">O‘yin tugadi!</h2>
+            <button id="restart-game">Qayta boshlash</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
